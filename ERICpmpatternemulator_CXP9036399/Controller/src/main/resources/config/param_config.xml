@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParamConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/param_config.xsd">
+  <PatternLocation>K:\TEST_DATA\NewTool\output</PatternLocation>
+  <OutputLocation>K:\TEST_DATA\NewTool\out</OutputLocation>
+  <Analysis isRequired="NO">
+	  <EventToAnalyze name="INTERNAL_EVENT_ERAB_DATA_INFO">
+	   <ParamToAnalyze name="EVENT_PARAM_GLOBAL_CELL_ID:2" type="MinMax">
+	    	<MinValue>25</MinValue>
+	    	<MaxValue>28</MaxValue>
+	    </ParamToAnalyze>
+	    <ParamToAnalyze name="EVENT_PARAM_MMES1APID" type="All"></ParamToAnalyze>
+	  </EventToAnalyze>
+	  <EventToAnalyze name="INTERNAL_PROC_RRC_CONN_RECONF_NO_MOB">
+	    <ParamToAnalyze name="EVENT_PARAM_MMES1APID" type="List">
+	    	<ListValue>68662681</ListValue>
+	    	<ListValue>467366820</ListValue>
+	    </ParamToAnalyze>
+	  </EventToAnalyze>
+  </Analysis>
+  <Enrichment isRequired="NO">
+	  <EventToEnrich name="INTERNAL_EVENT_ERAB_DATA_INFO">
+	   <ParamToEnrich name="EVENT_PARAM_GLOBAL_CELL_ID:2" type="MinMax">
+	    	<MinValue>25</MinValue>
+	    	<MaxValue>28</MaxValue>
+	    </ParamToEnrich>
+	  </EventToEnrich>
+	  <EventToEnrich name="INTERNAL_PROC_RRC_CONN_RECONF_NO_MOB">
+	    <ParamToEnrich name="EVENT_PARAM_MMES1APID" type="List">
+	    	<ListValue>68662681</ListValue>
+	    	<ListValue>467366820</ListValue>
+	    </ParamToEnrich>
+	  </EventToEnrich>
+  </Enrichment>
+  <EventAddition isRequired="YES">
+  	<EventToAdd name="INTERNAL_EVENT_ERAB_DATA_INFO" referenceEvent="INTERNAL_PROC_RRC_CONN_RECONF_NO_MOB" position="BEFORE"></EventToAdd>
+  	<EventToAdd name="INTERNAL_EVENT_ERAB_DATA_INFO" referenceEvent="INTERNAL_PROC_RRC_CONN_RECONF_NO_MOB" position="AFTER"></EventToAdd>
+  </EventAddition>
+</ParamConfig>

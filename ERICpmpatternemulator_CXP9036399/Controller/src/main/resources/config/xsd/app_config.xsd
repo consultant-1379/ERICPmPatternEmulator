@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="AppConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataSource" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GeneralInfo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="UniqueIDType" type="xs:string"></xs:element>
+									<xs:element name="DefaultRelease" type="xs:string"></xs:element>
+									<xs:element name="DefaultEventID" type="xs:int"></xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="FileNamePattern" type="xs:string"></xs:element>
+						<xs:element name="UniqueId" type="xs:string"></xs:element>
+						<xs:element name="ComplexParameters">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Parameter" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Component" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute name="Id" type="xs:int"></xs:attribute>
+														<xs:attribute name="startBit" type="xs:int"></xs:attribute>
+														<xs:attribute name="lengthBits" type="xs:int"></xs:attribute>
+														<xs:attribute name="comment" type="xs:string"></xs:attribute>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="name" type="xs:string"></xs:attribute>
+											<xs:attribute name="defaultComponentId" type="xs:int"></xs:attribute>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="value" type="xs:string"></xs:attribute>
+				</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="xmlns:xsi" type="xs:string"></xs:attribute>
+			<xs:attribute name="xsi:noNamespaceSchemaLocation" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

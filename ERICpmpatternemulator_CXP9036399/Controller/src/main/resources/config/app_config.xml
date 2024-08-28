@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<AppConfiguration  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./xsd/app_config.xsd">
+    <DataSource value="CTR">
+        <GeneralInfo>
+            <UniqueIDType>FILE_BASED</UniqueIDType>
+            <DefaultRelease>T|27|R20A</DefaultRelease>
+            <DefaultEventID>5174</DefaultEventID>
+        </GeneralInfo>
+        <FileNamePattern>[ABCD](?&lt;Date&gt;\d{8})\.(?&lt;StartTime&gt;\d{4})(?&lt;StartTimeOffset&gt;[-\+]\d{4})?-(?&lt;EndTime&gt;\d{4})(?&lt;EndTimeOffset&gt;[-\+]\d{4})?_(?&lt;UniqueId&gt;[\w\W]+)_celltracefile(_DUL\d{1})?_(?&lt;RopIndex&gt;\d{1})-?(?&lt;TimeStamp&gt;\d*)?.[\w\W]*</FileNamePattern>
+        <UniqueId>EVENT_PARAM_GLOBAL_CELL_ID</UniqueId>
+        <ComplexParameters>
+            <Parameter name="EVENT_PARAM_GLOBAL_CELL_ID" defaultComponentId="1">
+                <Component Id="-1" startBit="1" lengthBits="32" comment="Complete parameter"/>
+                <Component Id="0" startBit="1" lengthBits="4" comment="Padding"/>
+                <Component Id="1" startBit="5" lengthBits="20" comment="eNodeB ID"/>
+                <Component Id="2" startBit="25" lengthBits="8" comment="Cell ID"/>
+            </Parameter>
+            <Parameter name="EVENT_PARAM_GUMMEI" defaultComponentId="4">
+                <Component Id="-1" startBit="1" lengthBits="56" comment="Complete parameter"/>
+                <Component Id="0" startBit="1" lengthBits="8" comment="Indicates if its a valid and available element"/>
+                <Component Id="1" startBit="9" lengthBits="24" comment="PLMN Identity"/>
+                <Component Id="2" startBit="9" lengthBits="12" comment="MCC"/>
+                <Component Id="3" startBit="21" lengthBits="12" comment="MNC"/>
+                <Component Id="4" startBit="33" lengthBits="24" comment="MME Group ID + MME Code"/>
+                <Component Id="5" startBit="33" lengthBits="16" comment="MME Group ID"/>
+                <Component Id="6" startBit="49" lengthBits="8" comment="MME Code"/>
+            </Parameter>
+            <Parameter name="EVENT_PARAM_NEIGHBOR_CGI" defaultComponentId="-1">
+                <Component Id="-1" startBit="1" lengthBits="64" comment="Complete parameter"/>
+                <Component Id="0" startBit="1" lengthBits="8" comment="Indicates if its a valid and available element"/>
+                 <Component Id="1" startBit="9" lengthBits="24" comment="PLMN Identity"/>
+                <Component Id="2" startBit="9" lengthBits="12" comment="MCC"/>
+                <Component Id="3" startBit="21" lengthBits="12" comment="MNC"/>
+                <Component Id="4" startBit="33" lengthBits="20" comment="eNodeB ID"/>
+                <Component Id="5" startBit="53" lengthBits="8" comment="Cell ID"/>
+                <Component Id="6" startBit="61" lengthBits="4" comment="Padding"/>
+                <Component Id="7" startBit="33" lengthBits="12" comment="WRAN Rnc ID"/>
+                <Component Id="8" startBit="45" lengthBits="16" comment="WRAN Cell ID"/>
+                <Component Id="9" startBit="33" lengthBits="16" comment="Geran LAC"/>
+                <Component Id="10" startBit="49" lengthBits="16" comment="Geran Cell ID"/>
+            </Parameter>
+            <Parameter name="EVENT_PARAM_GENBID" defaultComponentId="2">
+                <Component Id="-1" startBit="1" lengthBits="64" comment="Complete parameter"/>
+                <Component Id="0" startBit="1" lengthBits="8" comment="Indicates if its a valid and available element"/>
+                <Component Id="1" startBit="9" lengthBits="24" comment="PLMN Identity"/>
+                <Component Id="2" startBit="9" lengthBits="12" comment="MCC"/>
+                <Component Id="3" startBit="21" lengthBits="12" comment="MNC"/>
+                <Component Id="4" startBit="33" lengthBits="20" comment="eNodeB ID"/>
+                <Component Id="5" startBit="53" lengthBits="8" comment="Cell ID"/>
+                <Component Id="6" startBit="61" lengthBits="4" comment="Padding"/>
+                <Component Id="7" startBit="33" lengthBits="28" comment="eNodeB ID + Cell ID"/>
+            </Parameter>
+        </ComplexParameters>
+    </DataSource>
+</AppConfiguration>
